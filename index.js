@@ -1,5 +1,12 @@
 const movieUL = document.querySelector("#films");
 movieUL.classList.add("movieUL");
+
+const movieDetails = document.querySelector("#popup");
+const moveTitle = document.querySelector("#moveTitle");
+const movieDescription = document.querySelector("#movieDescription");
+const movieLink = document.querySelector("#movieLink");
+
+///////////////////////////////////////////////////////////////////
 fetch(`http://localhost:3000/films`)
   .then((res) => {
     if (res.ok) {
@@ -20,7 +27,7 @@ function movieCards(moveObject) {
     const movieItem = document.createElement("li");
     movieItem.innerHTML = `
 
-		<div class="card movie_card">
+		<div class="card movie_card " id="card${movie.id}">
         <img src=
         "${movie.poster}"" alt="...">
         <div class="card-body">
@@ -32,7 +39,20 @@ function movieCards(moveObject) {
         </div>
       </div>
 
+
     `;
+
     movieUL.append(movieItem);
+    const card = document.getElementById(`card${movie.id}`);
+    const linkId = document.getElementById(`popup${movie.id}`);
+    console.log(card);
+
+    card.addEventListener("click", () => {
+      // console.log(movie.title);
+      card.classList.add("active");
+    });
+    card.addEventListener("mouseleave", () => {});
+    card.classList.remove("active");
+    // movieDetails.classList.remove("active");
   }
 }

@@ -5,6 +5,7 @@
 }
 body {
   background-color: #333;
+  position: relative;
 }
 nav {
   background-color: #111;
@@ -67,7 +68,6 @@ nav ul li a:hover {
 
 /***********************************************************/
 .movieUL {
-  background-color: yellow;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -140,4 +140,33 @@ img {
 }
 .credits .card-body i {
   color: #8e24aa;
+}
+
+/*******adding the popup************************************************/
+.card.active {
+  filter: blur(10px);
+}
+
+#popup {
+  background-color: rgb(17, 162, 160);
+  color: white;
+  width: 70%;
+  height: 70vh;
+
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#popup.active {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
 }
