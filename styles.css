@@ -1,0 +1,143 @@
+:root {
+  --primaryColor: rgb(44, 197, 197);
+  --secondaryColor: white;
+  --tertiaryColor: #555;
+}
+body {
+  background-color: #333;
+}
+nav {
+  background-color: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+  padding: 5px;
+}
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px 25px;
+}
+nav ul li {
+  list-style-type: none;
+  margin: 0 15px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: var(--primaryColor);
+  font-size: 1.3rem;
+  position: relative;
+  font-weight: bold;
+}
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  background-color: var(--secondaryColor);
+  height: 3px;
+  width: 0;
+  bottom: -10px;
+  transition: 0.5s;
+  left: 0;
+}
+nav ul li a:hover::after {
+  width: 100%;
+}
+nav ul li a:hover {
+  color: var(--secondaryColor);
+}
+.home {
+  color: var(--secondaryColor);
+}
+.logo {
+  width: 150px;
+  height: 100px;
+  animation: rotation 5s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotateY(360deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+/***********************************************************/
+.movieUL {
+  background-color: yellow;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+/*
+img {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+img {
+  pointer-events: none;
+}*/
+.movie_card {
+  padding: 0 !important;
+  background-color: #fff;
+  width: 22rem;
+  height: 40rem;
+  margin: 14px;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
+}
+.movie_card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 80%;
+  width: 100%;
+}
+.movie_info {
+  color: #5e5c5c;
+}
+
+.movie_info i {
+  font-size: 20px;
+}
+.card-title {
+  width: 80%;
+  height: 4rem;
+}
+.play_button {
+  background-color: #ff3d49;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  right: 20px;
+  bottom: 111px;
+  font-size: 27px;
+  padding-left: 21px;
+  padding-top: 16px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.credits {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 2px solid #8e24aa;
+  font-size: 18px;
+}
+.credits .card-body {
+  padding: 0;
+}
+.credits p {
+  padding-top: 15px;
+  padding-left: 18px;
+}
+.credits .card-body i {
+  color: #8e24aa;
+}
