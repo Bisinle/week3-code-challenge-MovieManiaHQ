@@ -6,6 +6,9 @@
 body {
   background-color: #333;
   position: relative;
+  background-image: linear-gradient(black, #1a585f);
+
+  height: 100vh;
 }
 nav {
   background-color: #111;
@@ -15,6 +18,7 @@ nav {
   flex-wrap: wrap;
   flex: 1;
   padding: 5px;
+  background: none;
 }
 nav ul {
   display: flex;
@@ -54,15 +58,17 @@ nav ul li a:hover {
 .logo {
   width: 150px;
   height: 100px;
-  animation: rotation 5s infinite linear;
+  animation: rotation 4s infinite linear;
 }
 
 @keyframes rotation {
   from {
-    transform: rotateY(360deg);
+    transform: rotateY(0deg);
+    transform: rotateX(360deg);
   }
   to {
-    transform: rotateX(0deg);
+    transform: rotateY(0deg);
+  
   }
 }
 
@@ -203,29 +209,136 @@ img {
   visibility: hidden;
   opacity: 0;
 }
-#popup img{
-  width: 400px;
+#popup img {
+  width: 40%;
   height: 100%;
-
 }
 
-#popup .details{
-  background-color: #888;
-  display: flex;
-  flex-direction: column;
-}
 #popup.active {
-  width: 70%;
+  width: 80%;
   height: 600px;
   position: fixed;
   top: calc(50%);
   left: calc(50%);
-padding: 0;
+  border-radius: 40px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
   visibility: visible;
   opacity: 1;
   transition: 0.5s;
 }
 
+#popup .details {
+  background: linear-gradient(black, #1a585f);
+  display: flex;
+  flex-direction: column;
+  width: calc(60%);
+  position: relative;
+  border-top-right-radius: 29px;
+}
+
+#popup .details #movieTitle {
+  font-size: 2rem;
+  color: var(--primaryColor);
+  text-align: center;
+}
+#popup .details hr {
+  width: 80%;
+  margin: 0 auto;
+}
+#movieDescription {
+  color: #999;
+  font-size: 1.2rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 10px;
+  width: 70%;
+  margin: 10px auto;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+}
+#movieDescription p {
+  padding: 0;
+  margin: 0;
+}
+#movieDescription h4 {
+  margin: 0px;
+}
+#popup .details #close {
+  width: 40px;
+  position: absolute;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  border-radius: 50%;
+  top: -10px;
+  right: -10px;
+}
+#popup .details #close a {
+  text-decoration: none;
+  color: white;
+  background-color: var(--secondaryColor);
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+#popup .details .run-show {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin: 20px auto;
+}
+#popup .details h5 {
+  color: var(--secondaryColor);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 100;
+  border: 2px solid var(--primaryColor);
+  letter-spacing: 2px;
+}
+#popup .details #quality {
+  background: var(--primaryColor);
+  color: black;
+  font-weight: bolder;
+}
+#popup .details #tickets {
+  width: 80%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#popup .details #tickets span {
+  width: 300px;
+  text-align: center;
+  margin: 10px;
+}
+#popup .details #tickets h4 {
+  padding: 10px 2px;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  transition: 0.5s ease-in-out;
+  background-color: var(--primaryColor);
+  color: black;
+  font-size: 1.2rem;
+}
+
+#popup .details #tickets h4:hover {
+  border: none;
+  color: black;
+  transform: scale(1.1);
+}
 @media screen and (max-width: 768px) {
   #popup.active {
     position: absolute;

@@ -16,7 +16,7 @@
   <body>
     <nav>
       <img
-        src="./legion-logo-zip-file/png/logo-no-background.png"
+        src="./logo.png"
         class="logo"
         alt="logo"
       />
@@ -33,17 +33,24 @@
     <ul id="films"></ul>
 
     <div id="popup">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlM4FvfdxemL57Z6wGh9Vj6SlvlD8zVVC8zg&usqp=CAU"
-        alt=""
-      />
+      <img alt="" />
       <div class="details">
         <h2 id="movieTitle"></h2>
+        <hr id="line" />
         <p id="movieDescription"></p>
+        <div class="run-show">
+          <span><h5 id="quality"></h5></span>
+          <span><h5 id="RunTime"></h5></span>
+          <span><h5 id="ShowTime"></h5></span>
+        </div>
+        <div id="tickets">
+          <span><h4 id="avalabletickets"></h4></span>
+          <span><h4 id="byNow">By NOW</h4></span>
+        </div>
+
         <p id="movieDescription"></p>
-        <p id="movieDescription"></p>
-        <span>
-          <a href="#" id="movieLink">Close</a>
+        <span id="close">
+          <a href="#" id="movieLink"><i class="fa-solid fa-xmark"></i></a>
         </span>
       </div>
     </div>

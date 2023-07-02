@@ -48,23 +48,39 @@ function movieCards(moveObject) {
     const card = document.getElementById(`card${movie.id}`);
     // console.log(card);
     const movieDetails = document.querySelector("#popup");
+    const moviePoster = document.querySelector("#popup img");
     const movieTitle = document.querySelector("#movieTitle");
     const movieDescription = document.querySelector("#movieDescription");
     const movieLink = document.querySelector("#movieLink");
+    const RunTime = document.querySelector("#RunTime");
+    const ShowTime = document.querySelector("#ShowTime");
+    const quality = document.querySelector("#quality");
+    const avalabletickets = document.querySelector(" #avalabletickets");
+    const byNow = document.querySelector(" #byNow");
+    // 
+
+    //ShowTime
 
     card.addEventListener("click", () => {
       // card.classList.add("active");
       movieUL.classList.add("active");
       movieDetails.classList.add("active");
+      moviePoster.setAttribute("src", `${movie.poster}`);
+      console.log(moviePoster);
 
-      if (movieDetails.classList.contains("active")) {
-        document.body.style.overflow = "hidden";
-      } else {
-        body.style.overflow = "auto";
-      }
-      //grap the elemets on the popup and insert the content
       movieTitle.textContent = ` ${movie.title}`;
-      movieDescription.textContent = `${movie.description}`;
+      movieDescription.innerHTML = `
+      <h4>Description</h4>
+      <br>
+      <p>${movie.description}         Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      </p>
+      
+      `;
+      quality.textContent = `${movie.quality} `;
+      RunTime.textContent = `${movie.runtime} mins`;
+      ShowTime.textContent = `${movie.showtime} `;
+      avalabletickets.textContent = `Tickets: ${movie.tickets_sold}`;
+      console.log(avalabletickets);
 
       console.log(card);
     });
