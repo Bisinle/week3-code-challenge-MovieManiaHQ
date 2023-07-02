@@ -68,7 +68,6 @@ nav ul li a:hover {
   }
   to {
     transform: rotateY(0deg);
-  
   }
 }
 
@@ -198,7 +197,7 @@ img {
 #popup {
   background-color: rgb(17, 162, 160);
   color: white;
-  width: 70%;
+  width: 0%;
   height: 5000px;
 
   top: 50%;
@@ -215,7 +214,7 @@ img {
 }
 
 #popup.active {
-  width: 80%;
+  width: 900px;
   height: 600px;
   position: fixed;
   top: calc(50%);
