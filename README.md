@@ -1,4 +1,3 @@
-# week3-code-challenge
 ## MovieManiaHQ
 
 
