@@ -113,6 +113,21 @@ img {
     rgba(255, 255, 255, 0) 94%
   );
 }
+.movie_card .delete {
+  color: var(--secondaryColor);
+  font-size: 2rem;
+  position: absolute;
+  bottom: 130px;
+  right: 0;
+  z-index: 1;
+  display: none;
+}
+.movie_card:hover .delete {
+  display: block;
+}
+.movie_card .delete:hover {
+  color: var(--primaryColor);
+}
 .movie_info {
   color: #5e5c5c;
 }
@@ -331,6 +346,11 @@ img {
   background-color: var(--primaryColor);
   color: black;
   font-size: 1.2rem;
+  cursor: pointer;
+}
+#popup .details #tickets #buyNow.sold-out {
+  background-color: grey;
+  transform: none;
 }
 
 #popup .details #tickets h4:hover {
