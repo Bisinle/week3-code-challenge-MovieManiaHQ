@@ -1,6 +1,15 @@
 const movieUL = document.querySelector("#films");
 movieUL.classList.add("movieUL");
 let currentId = null;
+const movieDetails = document.querySelector("#popup");
+const moviePoster = document.querySelector("#popup img");
+const movieTitle = document.querySelector("#movieTitle");
+const movieDescription = document.querySelector("#movieDescription");
+const movieLink = document.querySelector("#movieLink");
+const RunTime = document.querySelector("#RunTime");
+const ShowTime = document.querySelector("#ShowTime");
+const quality = document.querySelector("#quality");
+const avalabletickets = document.querySelector(" #avalabletickets");
 ///////////////////////////////////////////////////////////////////
 fetch(`http://localhost:3000/films`)
   .then((res) => {
@@ -14,43 +23,48 @@ fetch(`http://localhost:3000/films`)
   })
   .then((data) => {
     movieCards(data);
+    popupOnDOMload(data[0]);
   });
 
-// document.addEventListener('DOMContentLoaded',(e)=>{
-//   e.preventDefault()
+document.addEventListener("DOMContentLoaded", popupOnDOMload);
+function popupOnDOMload(object) {
+  // e.preventDefault();
 
-//   console.log("dom LOADED");
-//   const a = document.querySelector('#popup')
-//   a.classList.add('active')
-//   const ls = movieUL.querySelector('.card')
+  console.log("dom LOADED");
+  const popup = document.querySelector("#popup");
+  const popupImg = document.querySelector("#popup img");
 
-//   console.log(a);
-//   console.log(ls);
-//   if (a.classList.contains('active'))
-//   console.log('see');
+  popup.classList.add("active");
+  const ls = movieUL.querySelector(".card img");
+  const getatty = ls.getAttribute('src') 
+  popupImg.setAttribute('src', getatty)
+  movieTitle.textContent = object.title;
+  avalabletickets.textContent = `Tickets: ${
+    object.capacity - object.tickets_sold
+  }`;
+  movieDescription.textContent = object.description;
+  RunTime.textContent = object.runtime;
+  ShowTime.textContent = object.showtime;
+  quality.textContent = object.quality;
+  moviePoster.innerHTML = `${ls}`;
+  
 
-// })
+  console.log(getatty);
+  console.log(popupImg);
+  // if (popup.classList.contains("active")) console.log("see");
+}
 
 function ticketCaclculator(moviecapacity, movietickets) {
   if (moviecapacity > movietickets) {
     return moviecapacity - movietickets;
   } else {
-    alert("NO AVALABLE TICKETS");
     return `Sold Out`;
   }
 }
 
 function movieCards(moveObject) {
   console.log(moveObject[0]);
-  const movieDetails = document.querySelector("#popup");
-  const moviePoster = document.querySelector("#popup img");
-  const movieTitle = document.querySelector("#movieTitle");
-  const movieDescription = document.querySelector("#movieDescription");
-  const movieLink = document.querySelector("#movieLink");
-  const RunTime = document.querySelector("#RunTime");
-  const ShowTime = document.querySelector("#ShowTime");
-  const quality = document.querySelector("#quality");
-  const avalabletickets = document.querySelector(" #avalabletickets");
+
   const buyNow = document.createElement("h4");
   buyNow.setAttribute("id", "buyNow");
   buyNow.setAttribute("class", "byNowButton");
@@ -92,6 +106,7 @@ function movieCards(moveObject) {
     const card = document.getElementById(`card${movie.id}`);
     card.setAttribute("data-movie-id", `${movie.id}`);
     card.setAttribute("data-movie-ticketsSold", `${movie.tickets_sold}`);
+    card.setAttribute("data-movie-capacity", `${movie.capacity}`);
 
     buyNowSpan.append(buyNow);
 
@@ -147,10 +162,12 @@ function movieCards(moveObject) {
       const soldTickets = parseInt(
         lists[i].getAttribute("data-movie-ticketsSold")
       );
+      let capacity = parseInt(lists[i].getAttribute("data-movie-capacity"));
+      console.log(capacity);
 
       // console.log(cardID);
       // currentId = cardID;
-      BuyNowEventAdder(cardID, soldTickets);
+      BuyNowEventAdder(cardID, soldTickets, capacity);
     });
   }
 
@@ -167,11 +184,14 @@ function movieCards(moveObject) {
   }
 }
 
-function BuyNowEventAdder(id, soldTickets) {
+function BuyNowEventAdder(id, soldTickets, capacity) {
   buyNow.addEventListener("click", buyNowClickHandler);
 
   function buyNowClickHandler() {
     updateTheServer(id, soldTickets);
+    if (soldTickets >= capacity) {
+      alert("NO CAN DOO");
+    }
 
     // Remove the event listener for the "buyNow" button after it's clicked once
     buyNow.removeEventListener("click", buyNowClickHandler);
