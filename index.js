@@ -35,9 +35,10 @@ function popupOnDOMload(object) {
   const popupImg = document.querySelector("#popup img");
 
   popup.classList.add("active");
+
   const ls = movieUL.querySelector(".card img");
-  const getatty = ls.getAttribute('src') 
-  popupImg.setAttribute('src', getatty)
+  const getatty = ls.getAttribute("src");
+  popupImg.setAttribute("src", getatty);
   movieTitle.textContent = object.title;
   avalabletickets.textContent = `Tickets: ${
     object.capacity - object.tickets_sold
@@ -47,7 +48,6 @@ function popupOnDOMload(object) {
   ShowTime.textContent = object.showtime;
   quality.textContent = object.quality;
   moviePoster.innerHTML = `${ls}`;
-  
 
   console.log(getatty);
   console.log(popupImg);

@@ -6,7 +6,7 @@
 ## Description
 
 
-
+![Alt text](logo.png)
 
 this JavaScript code fetches movie data from a server, `dynamically` creates movie cards with interactive details, a`llows users to view movie information`, `buy tickets (updating ticket count on the server)`, and d`elete movies from the list (deleting them from the server)`. The code enables an interactive movie browsing experience on a web page.
 
