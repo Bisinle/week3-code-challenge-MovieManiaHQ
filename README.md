@@ -1,4 +1,4 @@
-## MovieManiaHQ
+![Screenshot from 2023-07-03 15-18-14](https://github.com/Bisinle/week3-code-challenge-MovieManiaHQ/assets/121357281/c6382850-f9e4-4c19-8feb-160682bfbd7f)## MovieManiaHQ
 
 
 
@@ -20,9 +20,18 @@ The "`movieCards" functio`n is responsible for creating and populating movie car
 
 For each movie in the data, the function dynamically creates a movie card with details such as the movie poster, title, runtime, and other information. It also adds event listeners to the movie cards to handle interactions when a user clicks on a card.
 
+![Screenshot from 2023-07-03 15-18-14](https://github.com/Bisinle/week3-code-challenge-MovieManiaHQ/assets/121357281/5cb408b4-b45e-4429-a0bd-456d9d62177e)
+
+
+
 When a user clicks on a movie card, `a popup appears displaying more detailed information about the selected movie,` such as its `description`, `quality`, `showtime`, and `available tickets`. The code calculates the number of available tickets based on the difference between the movie's capacity and the number of tickets already sold. If the movie is sold out, it marks the card as "sold-out."
+![Screenshot from 2023-07-03 15-17-27](https://github.com/Bisinle/week3-code-challenge-MovieManiaHQ/assets/121357281/36a6fe9e-5b1a-4fea-b774-9cbad83f2911)
+
+
 
 The code also provides a `"Buy Ticket"` button inside the popup for each movie card. When a user clicks this button, the script sends a request to the server to update the number of sold tickets for the respective movie, simulating a ticket purchase.
+![Screenshot from 2023-07-03 15-18-01](https://github.com/Bisinle/week3-code-challenge-MovieManiaHQ/assets/121357281/172754c2-edca-41de-9ddf-844a2a48ea91)
+
 
 Additionally, each movie card contains a "Delete" button that, when clicked, sends a request to the server to delete the corresponding movie from the database.
 
