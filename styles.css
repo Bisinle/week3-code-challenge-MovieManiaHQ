@@ -226,6 +226,9 @@ img {
 #popup img {
   width: 40%;
   height: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+
 }
 
 #popup.active {
@@ -241,7 +244,7 @@ img {
   visibility: visible;
   opacity: 1;
   transition: 0.5s;
-}
+  box-shadow: rgba(252, 254, 254, 0.4) 0px 10px 10px 10px, rgba(237, 231, 231, 0.06) 10px 1px 2px 0px;}
 
 #popup .details {
   background: linear-gradient(black, #1a585f);
@@ -250,6 +253,9 @@ img {
   width: calc(60%);
   position: relative;
   border-top-right-radius: 29px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+
 }
 
 #popup .details #movieTitle {
