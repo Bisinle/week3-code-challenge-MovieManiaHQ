@@ -33,25 +33,39 @@ function popupOnDOMload(object) {
   console.log("dom LOADED");
   const popup = document.querySelector("#popup");
   const popupImg = document.querySelector("#popup img");
+  const buyticket = document.querySelector("#popup #tickets #buyNowSpan  ");
 
   popup.classList.add("active");
   movieUL.classList.add("active");
-  const ls = movieUL.querySelector(".card img");
-  const getatty = ls.getAttribute('src') 
-  popupImg.setAttribute('src', getatty)
+  const getTheImageFromTHEcard = movieUL.querySelector(".card img");
+  const getatty = getTheImageFromTHEcard.getAttribute("src");
+  popupImg.setAttribute("src", getatty);
   movieTitle.textContent = object.title;
   avalabletickets.textContent = `Tickets: ${
     object.capacity - object.tickets_sold
   }`;
+  let remainder = parseInt(avalabletickets.textContent.slice(9));
+  console.log(remainder);
   movieDescription.textContent = object.description;
   RunTime.textContent = object.runtime;
   ShowTime.textContent = object.showtime;
   quality.textContent = object.quality;
-  moviePoster.innerHTML = `${ls}`;
-  
+
+  let id = object.id;
+  let tickets_soldCount = object.tickets_sold;
+  let theaterCapacity = object.capacity;
+  buyticket.addEventListener("click", () => {
+    if (remainder === 0) {
+      alert("no can do ");
+      return (avalabletickets.textContent = `Sould-0ut`);
+    } else {
+      BuyNowEventAdder(id, tickets_soldCount, theaterCapacity);
+    }
+  });
 
   console.log(getatty);
   console.log(popupImg);
+  console.log(buyticket);
   // if (popup.classList.contains("active")) console.log("see");
 }
 
